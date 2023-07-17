@@ -36,3 +36,20 @@ lines.forEach(line => {
 console.log(lines);
 const used = process.memoryUsage().heapUsed / 1024 / 1024;
 console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB`);
+
+// sort a hashmap by value
+const hashMapA = new Map<string, number>();
+hashMapA.set('a', 1);
+hashMapA.set('b', 2);
+
+const sortedHashMapA = new Map([...hashMapA.entries()].sort((a, b) => b[1] - a[1]));
+console.log(sortedHashMapA);
+
+// sort a hashmap by key
+const hashMapB = new Map<string, number>();
+hashMapB.set('a', 1);
+hashMapB.set('b', 2);
+
+const sortedMapB = new Map([...hashMapB.entries()].sort((a, b) => a[0].localeCompare(b[0])));
+const top5 = [...sortedMapB.entries()].slice(0, 5)
+console.log(top5);
